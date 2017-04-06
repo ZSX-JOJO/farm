@@ -1,0 +1,42 @@
+<include file='Common:head' />
+<title></title>
+</head>
+<body style='background:0;'>
+<div class="" style='margin-left:8px;background: #fff;height:725px;'>
+<nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>资金明细</nav>
+<div class="page-container">
+        <div class="cl pd-5 bg-1 bk-gray mt-20">
+            <span class="l" >
+            </span>  <span class="r">共有数据：<strong><{$count}></strong> 条</span> </div>
+        <div class="mt-0">
+            <table class="table table-border table-bordered table-hover table-bg ">
+                <thead>
+                    <tr class="text-c">
+                        <th width="">钱袋</th>
+                        <th width="">状态</th>
+                        <th width="">收入</th>
+                        <th width="">支出</th>
+                        <th width=''>余额</th>
+                        <th width=''>描述</th>
+                        <th width="">日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name='list' id='vo'>
+                    <tr class="text-c"> 
+                        <td class="text-c"><{$type[$vo['type']]}></td>
+                        <td class="text-c"><if condition='$vo.status eq 1'>收入<elseif condition='$vo.status eq 2' />支出</if></td></td>
+                        <td class="text-c"><{$vo.sum}></td>
+                        <td class="text-c"><{$vo.export}></td>
+                         <td><{$vo.balance}></td>
+                        <td class="text-c"><{$vo.explain}></td>
+                        <td class="text-c" style="width:180px;"><{$vo.create_date|date="Y-m-d H:i:s",###}></td>
+                    </tr>
+                </volist>
+
+                </tbody>
+            </table>  
+            <div id="pageNav" class="pageNav"><{$page}></div>
+        </div>
+    </div>
+<include file='Common:foot' />

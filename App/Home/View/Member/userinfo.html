@@ -1,0 +1,86 @@
+<include file='Common:head' />
+<title></title>
+</head>
+<body style='background:0;'>
+    <div class="" style='margin-left:8px;background: #fff;height:725px;'>
+        <nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>个人信息</nav>
+        <form action="__SELF__" method="post" class="form form-horizontal userinfo" id="form-member-add">
+
+            <div class="pd-20">
+                <table class="table  table-border table-bordered table-hover table-bg">
+                    <tbody> 
+                        <tr>
+                            <th class="text-l" colspan="2">基本信息：</th>
+
+                        </tr>
+                        <tr>
+                            <th class="text-r" style="width:30%">会员账号：</th>
+                            <td class="text-l" style="width:70%"><{$userInfo.username}></td>
+                        </tr>
+                        <tr>
+                            <th class="text-r" style="width:30%">会员昵称：</th>
+                            <td class="text-l" style="width:70%"><{$userInfo.name}></td>
+                        </tr>
+                        <tr>
+                            <th class="text-r" style="width:30%">手机号码：</th>
+                            <td class="text-l" style="width:70%"><{$userInfo.mobile}></td>
+                        </tr>  
+                        <tr>
+                            <th class="text-r" style="width:30%">推荐人：</th>
+                            <td class="text-l" style="width:70%"><{$userInfo.recommend}></td>
+                        </tr>  
+                        <tr>
+                            <th class="text-r" style="width:30%">本金钱袋：</th>
+                            <td class="text-l" style="width:70%"><{$userInfo.principal}></td>
+                        </tr>
+                        <tr>
+                            <th class="text-r" style="width:30%">积分：</th>
+                            <td class="text-l" style="width:70%"><{$userInfo.integral}></td>
+                        </tr>
+                      
+                        <tr>
+                            <th class="text-r" style="width:30%">直推人数：</th>
+                            <td class="text-l" style="width:70%"><{$userInfo.directnum}></td>
+                        </tr>
+                        <tr>
+                            <th class="text-r" style="width:30%">团队人数：</th>
+                            <td class="text-l" style="width:70%"><{$userInfo.group}></td>
+                        </tr>
+                        <tr>
+                            <th class="text-r" style="width:30%">注册日期：</th>
+                            <td class="text-l" style="width:70%"><{$userInfo.regtime|date='Y-m-d',###}></td>
+                        </tr>
+                        <tr>
+                            <th class="text-l" colspan="2">银行信息：</th>
+
+                        </tr>
+
+                        <tr>
+                            <th class="text-r" style="width:30%" colspan="2">
+                                <button type="button" class="btn btn-secondary radius" onclick="showPage('700','355','添加银行卡','<{:U("Member/addbank")}>')" href="javascript:;"><i class="Hui-iconfont"></i> 添加银行卡</button>
+                               
+                            </th>
+                        </tr>
+                    <volist name='userbanklist' id='vo'>
+                         <tr>
+                            <th class="text-r" style="width:30%">银行名称：</th>
+                            <td class="text-l" style="width:70%"><{$vo.bank}></td>
+                        </tr>
+                         <tr>
+                            <th class="text-r" style="width:30%">开户姓名：</th>
+                            <td class="text-l" style="width:70%"><{$vo.username}></td>
+                        </tr>
+                         <tr>
+                            <th class="text-r" style="width:30%">银行卡号：</th>
+                            <td class="text-l" style="width:70%"><{$vo.bankno}></td>
+                        </tr>
+                        <tr>
+                            <th class="text-r" style="width:30%">开户银行网点地址：</th>
+                            <td class="text-l" style="width:70%"><{$vo.kaihubank}></td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        <include file='Common:foot' />

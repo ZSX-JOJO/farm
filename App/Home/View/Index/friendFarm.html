@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache,no-store, must-revalidate">
+<title>好友农场</title>
+<link rel="stylesheet" type="text/css" href="__STYLE__/home/main.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/home/gd.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/home/rightlist.css" />
+<link rel="stylesheet" type="text/css" href="__STYLE__/home/jdt.css" />
+<script type="text/javascript" src="__JS__/home/jquery.js"></script>
+<script  type="text/javascript" src='__JS__/home/jquery.cookie.js'></script>
+<script  type="text/javascript" src='__JS__/home/farm.js'></script>
+<script  type="text/javascript" src='__JS__/home/gd.js'></script>
+<script type="text/javascript"  src="__JS__/home/rightlist.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" >
+$(document).ready(function () {
+setInterval(autotime, 30000);  //30秒
+});
+
+
+</script>
+ 
+
+</head>
+
+<body id='body' onload="load()">
+  <div class="main"> 
+   <div class="bg"> 
+    <div class="userinfo" style=""> 
+     <img class="yuanbao01" src="__IMG__/home/yuanbao01.png"  title="积分"/> 
+     <img class="money01" src="__IMG__/home/money01.png" title="现金" /> 
+     <img class="streng01" src="__IMG__/home/streng01.png" title="果实数量"/> 
+     <div style="width: 65px;height: 70px;float: left;"> 
+      <img style="margin-top:16px;margin-left: 3px" src="__IMG__/home/t.jpg" width="55px" height="55px" /> 
+      <span style="margin-top: 5px;   display: inline-block;"> <a href="<{:U('Member/userinfo')}>" style="color: white">[查看详情]</a> </span> 
+     </div> 
+     <div style="width: 145px;float: left;line-height: 17px;"> 
+      <div id="userinfo">
+       <{$userinfo.username}>
+       <br />
+       <span style="position: relative;"> <span id="userlevel"><{$level.title}></span><img src="__IMG__/home/up_alt.png" style=" display:none" /></span>(
+       <span id="upexperience"><{$uplevel.experience}></span>/<span id='experience'><{$userinfo.experience}></span>)
+      </div> 
+      <div style="width: 145px;float: left;"> 
+       <div style="height: 30px;margin-left: 28px"> 
+        <span id="usermoney"><{$userinfo.principal}></span>
+        <br /> 
+        <span id="integral"><{$userinfo.integral}></span>
+        <br /> 
+         <span id="fruitbalance"><{$number}></span>
+       </div> 
+      </div> 
+      <div style="height: 10px;text-align: right;float:right;">
+       <!--<a href="" onclick=""><img src="__IMG__/home/exchange.png" /></a>-->
+      </div> 
+     </div> 
+    </div> 
+       
+     <div class="userinfo" style="top:110px"> 
+     <img class="yuanbao01" src="__IMG__/home/yuanbao01.png"  title="积分"/> 
+     <img class="money01" src="__IMG__/home/money01.png" title="现金" /> 
+     <img class="streng01" src="__IMG__/home/streng01.png" title="果实数量"/> 
+     <div style="width: 65px;height: 70px;float: left;"> 
+      <img style="margin-top:16px;margin-left: 3px" src="__IMG__/home/avater/noavatar_middle.gif" width="55px" height="55px" /> 
+      <span style="margin-top: 5px;   display: inline-block;"> <a href="#" style="color: white">[<{$fuser}>]</a> </span> 
+     </div> 
+     <div style="width: 145px;float: left;line-height: 17px;"> 
+      <div id="userinfo">
+       <{$otheruserinfo.username}>
+       <br />
+       <span style="position: relative;"> <span id="userlevel"><{$otherlevel.title}></span><img src="__IMG__/home/up_alt.png" style=" display:none" /></span>(
+       <span id="upexperience"><{$otheruplevel.experience}></span>/<span id='experience'><{$otheruserinfo.experience}></span>)
+      </div> 
+      <div style="width: 145px;float: left;"> 
+       <div style="height: 30px;margin-left: 28px"> 
+        <span id="otherusermoney"><{$otheruserinfo.principal}></span>
+        <br /> 
+        <span id="otherintegral"><{$otheruserinfo.integral}></span>
+        <br /> 
+         <span id="otherfruitbalance"><{$othernumber}></span>
+       </div> 
+      </div> 
+      <div style="height: 10px;text-align: right;float:right;">
+       <!--<a href="" onclick=""><img src="__IMG__/home/exchange.png" /></a>-->
+      </div> 
+     </div> 
+    </div> 
+       
+    <div id="righttop"> 
+     <span><a href="javascript:void(0);" onclick="layer_page('590','450','个人仓库','<{:U('index/depot')}>')" ><img src="__IMG__/home/depot.png" /></a></span> 
+     <span><a href="javascript:void(0);" onclick="layer_page('690','510','商店','<{:U('index/shop')}>')" ><img src="__IMG__/home/shop.png" /></a></span> 
+     <span><a  href="javascript:void(0);" onclick="layer_page('590','450','排序榜','<{:U('index/ranking')}>')"><img src="__IMG__/home/ranking.png" /></a></span> 
+    </div> 
+<!--    <div id="leftcenter"> 
+     <span><a href="" onclick=""><img src="__IMG__/home/signin.png" /></a></span> 
+     <span><a href="" onclick=""><img src="__IMG__/home/ad.png" /></a></span> 
+     <span><a href="" onclick=""><img src="__IMG__/home/mess.png" /></a></span> 
+    </div> -->
+<div id="bottomright"  style="position: absolute; width: 100px;height: 20px;right: 40px; bottom: 33px;padding: 5px;z-index: 1;"><a href="<{:U('Index/fram')}>"><img class="home" onclick="" src="__IMG__/home/home1.png"></a></div>
+    <div class="plate"> 
+     <img src="__IMG__/home/15.png" width="120" height="120" /> 
+    </div> 
+    <div class="didiv"> 
+     <ul class="diul" id='land'> 
+      
+     </ul> 
+    </div> 
+    
+    
+    
+<!--    <div id="bottomleft"> 
+     <span><img src="__IMG__/home/maintask.png" /></span> 
+     <span><img src="__IMG__/home/basetask.png" /></span> 
+     <span><img src="__IMG__/home/active.png" /></span> 
+    </div> -->
+    <!--<div id="refresh" title="刷新"></div>--> 
+
+    <div id="bottomcenter"> 
+     <div id="itemsul" style="display: none"> 
+     </div> 
+     <div id="closemenu"></div> 
+     <div id="usermenu"> 
+      <span onclick="mico('caiico',3)"><img src="__IMG__/home/hand.png" /><font>收获</font></span> 
+      <span onclick="tool()"><img src="__IMG__/home/huafeis.png" /><font>道具</font></span> 
+     </div> 
+    </div> 
+    
+    
+    <!-- 种子栏 --> 
+    <div class="scroll" style="margin:0 auto;width:550px;" id="scroll"> 
+     <!-- "prev page" link --> 
+     <a class="prev" href="#"></a> 
+     <div class="box"> 
+      <div class="scroll_list"> 
+       <ul id="framseed"> 
+       </ul> 
+      </div> 
+     </div> 
+     <!-- "next page" link --> 
+     <a class="next" href="#"></a> 
+    </div> 
+    <!-- 工具栏 --> 
+    <div class="scroll" style="margin:0 auto;width:550px;" id="scrolls"> 
+     <!-- "prev page" link --> 
+     <a class="prev" href="#"></a> 
+     <div class="box"> 
+      <div class="scroll_list"> 
+       <ul id="tool"> 
+        
+       </ul> 
+      </div> 
+     </div> 
+     <!-- "next page" link --> 
+     <a class="next" href="#"></a> 
+    </div> 
+    
+    
+<div id="rightcenter" style="width: 30px; display: block;">
+<div class="friendiv">
+<span class="clickfriend">
+<input type="hidden" id="friendflag" value="0"></span>
+我的直推人数：<span id="mysort"><{$count}></span><br>
+<input type="text" size="17" style="height:16px" id="friendname" onkeyup="">
+    <img src="__IMG__/home/search.png" style="vertical-align: top; cursor: pointer"  onclick="search()" ><br>
+<div id="sortmenu">
+<input id="act" type="hidden">
+<input id="ordertype" type="hidden">
+<span style="background: #fff2d7">
+<a style="color: #897654" onclick="userlevellist('1')">我的直推</a></span>
+<span><a onclick="friends('1')">我的好友</a></span>
+<!--<span><a onclick="">按金钱</a></span>-->
+</div>
+<div id="out">
+<div id="insul">
+<table width="100%">
+<tbody id='tbody'>
+</tbody>
+</table>
+</div>
+<div id="insulbottom">
+</div>
+</div>
+</div>
+</div>
+   </div> 
+  </div>
+   
+</body>
+</html>
+

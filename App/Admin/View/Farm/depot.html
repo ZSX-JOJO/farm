@@ -1,0 +1,45 @@
+<include file='Common:head' />
+<title></title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 农场管理<span class="c-gray en">&gt;</span> 仓库管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<form method="post" action="__SELF__">
+<div class="pd-20">
+  <div class="text-c">
+    
+    账号：
+ 
+    <input type="text" name='username' class="input-text" style="width:120px;" value="<{$arr['username']}>">
+     <button type="submit" class="btn btn-success" id="" ><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+
+  </div>
+  </form>
+<div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l">总共价值： <{$total}> 元</span> <span class="r">共有数据：<strong><{$count}></strong> 条</span> </div>
+  <table class="table table-border table-bordered table-bg table-hover table-sort">
+    <thead>
+      <tr class="text-c">
+      
+        <th width="80">ID</th>
+        <th width="150">账号</th>
+        <th width="150">果实名称</th>
+        <th width="150">果实图片</th>
+        <th width="150">果实数量</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+	<volist name='list' id='vo'>
+      <tr class="text-c">
+      
+        <td><{$vo.id}></td>
+        <td><{$vo.username}></td>
+          <td><{$vo.title}></td>
+        <td><img class="picture-thumb" src="/<{$vo.large}>" width='50' height='50'></td>
+        <td><{$vo.number}></td>
+        </tr>
+	  </volist>
+    </tbody>
+  </table>
+  <div id="pageNav" class="pageNav"><{$page}></div>
+</div>
+<include file='Common:foot' />

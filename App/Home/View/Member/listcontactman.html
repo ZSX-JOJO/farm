@@ -1,0 +1,62 @@
+﻿<include file='Common:head' />
+<link rel="stylesheet" href="__PUBLIC__/H-ui/lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<title></title>
+</head>
+<body style='background:0;'>
+   
+   
+    <div class="pos-a" style="width:100%;left:0;top:0; bottom:0; height:100%;margin-left:8px;background: #fff;height:725px ">
+             <nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>团队列表</nav>
+          
+        <ul id="treeDemo" class="ztree">
+        </ul>
+    </div>
+<include file='Common:foot' />
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script> 
+<!---异步加载节点--->
+<SCRIPT type="text/javascript">
+function search()
+{
+  
+
+    var setting = {
+        view: {
+            selectedMulti: false
+        },
+        async: {
+            enable: true,
+            url:"/Home/Member/mytree",
+            autoParam: ["id","name"],
+            dataFilter: filter,
+            type: 'get',
+            datatype: 'text',
+        }, callback: {
+           
+            beforeClick: function () {
+            
+            },
+            beforeAsync: function () {
+           
+            }
+        }
+    };
+    zTreeObj = $.fn.zTree.init($("#treeDemo"), setting);
+    
+
+    function filter(treeId, parentNode, childNodes) {
+        if (!childNodes)
+            return null;
+        for (var i = 0, l = childNodes.length; i < l; i++) {
+            childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+        }
+        return childNodes;
+    }
+}
+
+$(document).ready(function () {
+    search();//树的初始化
+
+});
+
+
+</SCRIPT>

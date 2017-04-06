@@ -1,0 +1,477 @@
+﻿<include file='Common:header' />
+
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+            <div class="zcxhydivs">
+                    <span class="zcxhyspans">修改个人资料</span>
+                    <ul class="zcxhyul">
+					   
+                     
+                        <li>
+                            <span class="zcxhyspan">姓名：</span>
+                            <input type="text" class="zcxhytext tname" name='tname' value='<{$userinfo.name}>'  readonly="readonly" /><span class='tname_tip'  style='height: 40px;line-height: 40px;'></span>
+                        </li>
+                        <li>
+                            <span class="zcxhyspan">手机号码：</span>
+                            <input type="text" class="zcxhytext mobile" name='mobile' value='<{$userinfo.mobile}>'  readonly="readonly"/> <span class='mobile_tip'  style='height: 40px;line-height: 40px;'></span>
+                        </li>
+                        <li>
+                            <span class="zcxhyspan">支付宝：</span>
+                             <input type="text" class="zcxhytext  alipay" name='alipay' value='<{$userinfo.alipay}>'/><span class='alipay_tip'  style='height: 40px;line-height: 40px;'></span>
+                        </li>
+                        <li>
+                            <span class="zcxhyspan">银行卡号：</span>
+                               <input type="text" class="zcxhytext  bankno" name='bankno' value='<{$userinfo.bankno}>'/><span class='bankno_tip'  style='height: 40px;line-height: 40px;'></span>
+                        </li>
+                        <li>
+                            <span class="zcxhyspan">银行名称：</span>
+                            	<select class="zcxhytext bankname"   style='padding:0px 6px;width:226px;height:38px;' name='bankname'>
+								<volist name='banklist' id='vo'>
+								 <option value="<{$vo.bankname}>"  <if condition="$vo['bankname'] eq $userinfo['bank']">selected</if>><{$vo.bankname}></option>
+								</volist>
+							    </select>
+                        </li>
+						<li>
+                            <span class="zcxhyspan">二级密码：</span>
+                            	 <input type="password" class="zcxhytext towlevelpassword" name='towlevelpassword' /><span class='towlevelpassword_tip'  style='height: 40px;line-height: 40px;'></span>
+                        </li>
+                     <!--   <li>
+                            <span class="zcxhyspan">短信验证码：</span>
+                            <input type="text" class="zcxhytext code" style="width: 135px;" />
+                            <span class=" msgs">获取短信验证码</span>  <span class='code_tip' style='height: 40px;line-height: 40px;'></span>
+                        </li>-->
+                        
+                        <li>
+                            <a class="zhucexhya saveuserinfo_subtn">更新</a>
+                        </li>
+                    </ul>
+                </div>
+				<div class='clear' style='height:10px;'></div>
+                <div class="perdatalxfs">
+                    <span class="lxfsspan">修改登录密码</span>
+                    <table class="lxfstable" style='width:400px;'>
+                        <tr>
+                            <td style="text-align: right;">原密码：</td>
+                            <td style='width:200px;'>
+                                <input type="password" class="sjyzmtext oldtowpassword" name='oldtowpassword' /><span class='oldtowpassword_tip'> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">新密码：</td>
+                            <td>
+                                <input type="password" class="sjyzmtext  towpassword" name='towpassword' /><span class='towpassword_tip'> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">确认新密码：</td>
+                            <td>
+                                <input type="password" class="sjyzmtext  towrepwd" name='towrepwd' /><span class='towrepwd_tip'> </span>
+                            </td>
+                        </tr>
+                       <!-- <tr>
+                            <td style="text-align: right;">短信验证码：</td>
+                            <td>
+                                <input type="text" class="sjyzmtext code" style="width: 140px;" />
+                                  <span class=" msgs">获取短信验证码</span>  <span class='code_tip' style='height: 40px;line-height: 40px;'></span>
+                            </td>
+                        </tr>-->
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a class="lxgxa towpassword_subtn">修改</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+
+                <div class="perdatalxfs" style="float: right;">
+                    <span class="lxfsspan">修改安全(二级)密码</span>
+                    <table class="lxfstable"  style='width:400px;'>
+                        <tr>
+                            <td style="text-align: right;">原二级密码：</td>
+                            <td style='width:200px;'>
+                                <input type="password" class="sjyzmtext  oldpassword" name='oldpassword' /><span class='oldpassword_tip'></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">新二级密码：</td>
+                            <td>
+                                <input type="password" class="sjyzmtext password" name='password' /><span class='password_tip'></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">确认新二级密码：</td>
+                            <td>
+                                <input type="password" class="sjyzmtext  repwd" name='repwd' /><span class='repwd_tip'></span>
+                            </td>
+                        </tr>
+                        <tr>
+                       <!--<td style="text-align: right;">短信验证码：</td>
+                            <td>
+                                <input type="text" class="sjyzmtext code" style="width: 140px;" />
+                                  <span class=" msgs">获取短信验证码</span>  <span class='code_tip' style='height: 40px;line-height: 40px;'></span>
+                            </td>
+                        </tr>-->
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a class="lxgxa password_subtn">修改</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <div style="height: 50px; width: 100%; clear: both;"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+	function isLegal(str){
+		if(/[!,#,$,%,^,&,*,?,~,\\,|,;,",<,>,(,),+,.,\s+]/gi.test(str)) return false;
+			var str1 = str.toLowerCase()
+			if(str1.indexOf("script") >= 0 || str1.indexOf("select") >= 0 || str1.indexOf("update") >= 0 || str1.indexOf("delete") >= 0 || str1.indexOf("insert") >= 0 || str1.indexOf("insert") >= 0 || str1.indexOf("drop") >= 0 || str1.indexOf("truncate") >= 0 || str1.indexOf("union") >= 0 || str1.indexOf("user") >= 0 || str1.indexOf("load_file") >= 0 || str1.indexOf("outfile") >= 0)
+			{
+				return false;
+			}
+			return true;
+		}
+	function strLength(as_str){
+		return as_str.replace(/[^\x00-\xff]/g, 'xx').length;
+	}
+	//检查二级密码
+	function chaeck_towpassword()
+	{
+		var pwd=$.trim($('.towlevelpassword').val());
+		var regp = new RegExp("^[0-9a-zA-Z]+$");
+		var strlen = strLength(pwd);
+		if(regp.test(pwd) && strlen>=6 && strlen<=12 ){
+			$('.towlevelpassword_tip').html('');
+			flag=true;
+		}else{
+			$('.towlevelpassword_tip').html('<span style="color:#d00000;">输入6-12位的二级密码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+	//检查密码
+	function check_oldpwd(){
+		var pwd=$.trim($('.oldpassword').val());
+		var regp = new RegExp("^[0-9a-zA-Z]+$");
+		var strlen = strLength(pwd);
+		if(regp.test(pwd) && strlen>=6 && strlen<=12 ){
+			$('.oldpassword_tip').html('');
+			flag=true;
+		}else{
+			$('.oldpassword_tip').html('<span style="color:#d00000;">请输入6-12位的旧密码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+	//检查密码
+	function check_pwd(){
+		var pwd=$.trim($('.password').val());
+		var regp = new RegExp("^[0-9a-zA-Z]+$");
+		var strlen = strLength(pwd);
+		if(regp.test(pwd) && strlen>=6 && strlen<=12 ){
+			$('.password_tip').html('');
+			flag=true;
+		}else{
+			$('.password_tip').html('<span style="color:#d00000;">只能输入6-12位的密码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+
+	//检查确认密码
+	function check_repwd(){
+		var repwd=$.trim($('.repwd').val());
+		var regrp = new RegExp("^[0-9a-zA-Z]+$");
+		var strlen = strLength(repwd);
+		if(regrp.test(repwd) && strlen>=6 && strlen<=12 ){
+			if($('.password').val() != repwd){
+				$('.repwd_tip').html('<span style="color:#d00000;">两次密码不一致</span>');
+				flag=false;
+			}else{
+				$('.repwd_tip').html('');
+				flag=true;
+			}
+		}else{
+			$('.repwd_tip').html('<span style="color:#d00000;">只能输入6-12位的确认密码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+	//检查二级密码
+	function check_oldtowpwd(){
+		var towpwd=$.trim($('.oldtowpassword').val());
+		var towregp = new RegExp("^[0-9a-zA-Z]+$");
+		var strlen = strLength(towpwd);
+		if(towregp.test(towpwd) && strlen>=6 && strlen<=12 ){
+			$('.oldtowpassword_tip').html('');
+			flag=true;
+		}else{
+			$('.oldtowpassword_tip').html('<span style="color:#d00000;">请输入6-12位的旧二级密码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+		//检查二级密码
+	function check_towpwd(){
+		var towpwd=$.trim($('.towpassword').val());
+		var towregp = new RegExp("^[0-9a-zA-Z]+$");
+		var strlen = strLength(towpwd);
+		if(towregp.test(towpwd) && strlen>=6 && strlen<=12 ){
+			$('.towpassword_tip').html('');
+			flag=true;
+		}else{
+			$('.towpassword_tip').html('<span style="color:#d00000;">只能输入6-12位的二级密码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+
+	//检查确认密码
+	function check_towrepwd(){
+		var towrepwd=$.trim($('.towrepwd').val());
+		var towregrp = new RegExp("^[0-9a-zA-Z]+$");
+		var strlen = strLength(towrepwd);
+		if(towregrp.test(towrepwd) && strlen>=6 && strlen<=12 ){
+			if($('.towpassword').val() != towrepwd){
+				$('.towrepwd_tip').html('<span style="color:#d00000;">两次密码不一致</span>');
+				flag=false;
+			}else{
+				$('.towrepwd_tip').html('');
+				flag=true;
+			}
+		}else{
+			$('.towrepwd_tip').html('<span style="color:#d00000;">只能输入6-12位的确认密码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+
+	
+	//检查手机格式
+//	function check_mobile(){
+//		var mobile=$.trim($('.mobile').val());
+//		telreg =  /^(1)[0-9]{10}$/;
+//		if(telreg.test(mobile)){
+//			 $.ajax({ 
+//				type:"post", 
+//				url:"/Home/Member/check_mobile", 
+//				data: {mobile:mobile}, 
+//				dataType: 'json', 
+//				async : false,//设置为同步操作就可以给全局变量赋值成功 
+//				success:function(data){ 
+//					if(data.status==1){
+//						flag=false;
+//					}else{
+//						flag=true;
+//					}
+//					$('.mobile_tip').html("<span style='color:#d00000;'>"+data.msg+"</span>");
+//				}
+//				}); 
+//		}else{
+//			$('.mobile_tip').html('<span style="color:#d00000;">请输入手机号码</span>');
+//			flag=false;
+//		}
+//		return flag;
+//	}
+//支付宝账号
+	function check_alipay(){
+		var alipay=$.trim($('.alipay').val());
+		var telreg =  /^(1)[0-9]{10}$/;
+		var rege=new RegExp("^[\\w-]+(\\.[\\w-]+)*@[\\w-]+(\\.[\\w-]+)+$", "i");
+		if(telreg.test(alipay)||rege.test(alipay)){
+			 $.ajax({ 
+				type:"post", 
+				url:"/Home/Member/check_alipay", 
+				data: {alipay:alipay}, 
+				dataType: 'json', 
+				async : false,//设置为同步操作就可以给全局变量赋值成功 
+				success:function(data){ 
+					
+					if(data.status==1){
+						flag=false;
+					}else{
+						flag=true;
+					}
+					$('.alipay_tip').html("<span style='color:#d00000;'>"+data.msg+"</span>");
+				}
+				}); 
+		}else{
+			$('.alipay_tip').html('<span style="color:#d00000;">请输入支付宝账号</span>');
+			flag=false;
+		}
+		return flag;
+	}
+	//账户名称
+//	function check_tname(){
+//		var tname=$('.tname').val();
+//		if(tname){
+//			$('.tname_tip').html('');
+//			flag=true;
+//		}else{
+//			$('.tname_tip').html('<span style="color:#d00000;">请输入姓名</span>');
+//			flag=false;
+//		}
+//		return flag;
+//	}
+	//银行卡号
+	function check_bankno(){
+		var bankno=$('.bankno').val();
+		if(bankno){
+			var regbank = new RegExp("^[0-9]+$");
+			if(regbank.test(bankno)){
+			   $.ajax({ 
+				type:"post", 
+				url:"/Home/Member/check_bankno", 
+				data: {bankno:bankno}, 
+				dataType: 'json', 
+				async : false,//设置为同步操作就可以给全局变量赋值成功 
+				success:function(data){ 
+					if(data.status==1){
+						flag=false;
+					}else{
+						flag=true;
+					}
+					$('.bankno_tip').html("<span style='color:#d00000;'>"+data.msg+"</span>");
+				}
+				}); 
+			}else{
+				$('.bankno_tip').html('<span style="color:#d00000;">请输入银行账号</span>');
+				flag=false;
+			}
+			
+		}else{
+			$('.bankno_tip').html('<span style="color:#d00000;">请输入银行账号</span>');
+			flag=false;
+		}
+		return flag;
+	}
+	
+	//验证码
+	function check_code(){
+		var code=$.trim($('.code').val());
+		var regc = new RegExp("^[0-9a-zA-Z]+$");
+		var strlen = strLength(code);
+		if(regc.test(code) && strlen==4 ){
+			$('.code_tip').html('');
+			flag=true;
+		}else{
+			$('.code_tip').html('<span style="color:#d00000;">请输入短信验证码</span>');
+			flag=false;
+		}
+		return flag;
+	}
+	
+	
+
+	$(function(){
+			//获取短信验证码
+	/*	var validCode=true;
+		$(".msgs").click (function  () {
+			var time=60*3;
+			var code=$(this);
+			var flag=false;
+			if (validCode) {
+				validCode=false;
+				code.addClass("msgs1");
+				flag=true;
+			var t=setInterval(function  () {
+				time--;
+				code.html(time+"秒");
+				if (time==0) {
+					clearInterval(t);
+				code.html("重新获取");
+					validCode=true;
+				code.removeClass("msgs1");
+
+				}
+			},1000)
+			
+			if(flag)
+			{  
+				flag=false;
+				//set_code();
+			}
+
+			}
+			
+		})
+		$('.code').blur(function(){
+			check_code();
+		});*/
+		$('.oldpassword').blur(function(){
+			check_oldpwd();
+		});
+		$('.oldtowpassword').blur(function(){
+			check_oldtowpwd();
+		});
+		$('.towlevelpassword').blur(function(){
+			chaeck_towpassword();
+		});
+		$('.password').blur(function(){
+			check_pwd();
+		});
+		$('.repwd').blur(function(){
+			check_repwd();
+		});
+		$('.towpassword').blur(function(){
+			check_towpwd();
+		});
+		$('.towrepwd').blur(function(){
+			check_towrepwd();
+		});
+	
+//		$('.mobile').blur(function(){
+//			check_mobile();
+//		});
+		$('.alipay').blur(function(){
+			check_alipay();
+		});
+//		$('.tname').blur(function(){
+//			check_tname();
+//		});
+		$('.bankno').blur(function(){
+			check_bankno();
+		});
+		
+		$('.saveuserinfo_subtn').click(function(){
+			var flag1=check_alipay();
+//			var flag2=check_mobile();
+//			var flag3=check_tname();
+			var flag4=check_bankno();
+			var flag5=chaeck_towpassword();
+			
+			if(flag1 &&flag4 && flag5 ){
+				userinfo_save();
+			}
+		});
+		$('.towpassword_subtn').click(function(){
+			var flag1=check_towpwd();
+			var flag2=check_towrepwd();
+			var flag3=check_oldtowpwd();
+			if(flag1 && flag2 && flag3 ){
+				towpassword_save();
+			}
+		});
+		$('.password_subtn').click(function(){
+			var flag1=check_pwd();
+			var flag2=check_repwd();
+			var flag3=check_oldpwd();
+			
+			if(flag1 && flag2 && flag3 ){
+				password_save();
+			}
+		});
+
+	});
+</script>
+<include file='Common:footer' />
+

@@ -1,0 +1,18 @@
+*{padding:0px;}
+body{word-wrap:break-word;font-family: 'Microsoft YaHei';}
+a,a:link{cursor: pointer;text-decoration: none;}
+
+#rightcenter{position: absolute;width: 30px;height: 450px;right: 0px;top: 100px;z-index:4;overflow: hidden;}
+#rightcenter .friendiv{background: url(../../images/home/friend.png);position: relative;width: 228px;height: 438px;padding-top:10px;text-align: left;padding-left: 40px;color:white}
+#rightcenter #sortmenu{width: 85%; margin:0px}
+#sortmenu span{display: inline-block;width: 60px;height: 20px;background: #3b1804;text-align: center;vertical-align: middle;}
+#sortmenu a{display: block;font-weight: bold;color: #a63900;text-decoration: none}
+#rightcenter #out{height: 380px;width: 188px;position: relative;margin:0px;}
+#insul{height: 340px;position: absolute;left: 0;top: 0;width: 100%;background: #fff2d7;color: #786114}
+#insulbottom{height: 40px;position: absolute;left:10px;bottom: 0;width: 100%;color: white;}
+#insulbottom a{color: white;text-decoration: none;cursor: pointer;}
+#insulbottom img{vertical-align: middle;cursor: pointer;}
+#insulbottom span{display: inline-block;background: url(../../images/home/kuang2.png);width: 64px;height: 20px;vertical-align: middle;text-align: center;}
+#rightcenter .clickfriend{position:absolute;width: 30px;height: 120px;left: 3px;top:150px;cursor: pointer;}
+#rightcenter tr{cursor:pointer;line-height: 20px}
+#rightcenter tr:hover{background: #ad837d;}

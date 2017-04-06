@@ -1,0 +1,100 @@
+<include file='Common:head' />
+<title></title>
+<body style='background:0;'>
+    <div class="" style='margin-left:8px;background: #fff;height:725px;'>
+        <nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>本金.收益提现</nav>
+        <div class="page-container">
+            <form action=""  class="form form-horizontal SubmiForm" id="form-article-add"  >
+                 <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-4 " style="text-align: right;">总金额：</label>
+                    <div class="formControls col-xs-5 col-sm-4">
+                     <{$principal}> ￥
+                    </div>
+                </div>
+                {__TOKEN__}
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-4 " style="text-align: right;"><span class="c-red">*</span>钱袋类型：</label>
+                    <div class="formControls col-xs-5 col-sm-4">
+                        <select class="select type select-box " size="1" name="type"  datatype="*" nullmsg="请选择钱袋类型"  >
+                            <option value=''>请选择钱袋类型</option>
+                            <foreach name='type' item='id'>
+                                <option value="<{$key}>" ><{$id}></option>
+                            </foreach>
+                        </select>
+
+                    </div>  <div class="Validform_checktip"></div>    
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-4 " style="text-align: right;"><span class="c-red">*</span>提现金额：</label>
+                    <div class="formControls col-xs-5 col-sm-4">
+                        <input type="text" class="input-text money"  value="" placeholder="" id="money" name="money"   nullmsg="请输入提现金额！" datatype="*" onblur="bb()" >
+                    </div>
+                    <div class="Validform_checktip money_msg"></div>
+                </div>
+                 <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-4 " style="text-align: right;"><span class="c-red">*</span>收款卡号：</label>
+                    <div class="formControls col-xs-5 col-sm-4">
+                        <select class="select banktype select-box " size="1" name="banktype"  datatype="*" nullmsg="请选择收款卡号"  >
+                            <option value=''>请选择收款卡号</option>
+                            <volist name='userbanklist' id='vo' >
+                                <option value="<{$vo.id}>" ><{$vo.bankno}></option>
+                            </volist>
+                        </select>
+
+                    </div>  <div class="Validform_checktip"></div>    
+                </div>
+
+                <div class="row cl text-c">
+                    <button  class="btn btn-secondary radius"   type="submit"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+                </div>
+                  <div class="row cl text-c">
+                      <span style="color:red">  注：除大陆法定节假日外，所有资金都能正常提现到帐。</span>
+                </div>
+            </form>
+        </div>
+
+        <!--_footer 作为公共模版分离出去-->
+        <include file='Common:foot' />
+        <!--/_footer /作为公共模版分离出去-->
+        <script type="text/javascript">
+            function  bb() {
+                var money = $('.money').val();
+                var type = $('.type').val();
+                var flag;
+                $.ajax({
+                    type: "post",
+                    url: "/Home/Report/getdeduct",
+                    data: {money: money, type: type},
+                    dataType: 'json',
+                    async: false, //设置为同步操作就可以给全局变量赋值成功 
+                    success: function (data) {
+                        if (data.status == 1)
+                        {
+                             $('.money_msg').html(' <span class="Validform_checktip Validform_right">'+ data.msg+'</span>');
+                              flag=true;
+                        } else
+                        { $('.money_msg').html(' <span class="Validform_checktip Validform_wrong">'+ data.msg+'</span>');
+                              flag=false; 
+                        }
+                        
+                        return flag;
+                    }
+                });
+                return flag;
+            }
+
+            $(function () {
+                $(".SubmiForm").Validform({
+                    callback: function (form) {
+                        var a=bb();
+                        if(a){
+                        tixian();
+                        }
+                        return false;
+                   
+                    },
+                    tiptype: 2,
+                });
+            });
+        </script> 

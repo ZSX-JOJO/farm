@@ -1,0 +1,35 @@
+﻿<include file='Common:head' />
+<title>公告管理</title>
+</head>
+<body style='background: 0;'>
+<div class="" style='margin-left:8px;background: #fff;height:725px;'>
+<nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>信件箱</nav>
+<div class="page-container">
+
+        
+        <!--        <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> </span> 
+                    <span class="r">共有数据：<strong><{$count}></strong> 条</span> </div>-->
+        <div class="mt-0">
+            <table class="table table-border table-bordered  table-hover table-bg ">
+                <thead>
+                    <tr class="text-c">
+                        <th width="">主题</th>
+                        <th width="140">创建时间</th>
+                        <th width="100">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name='list' id='vo' > 
+                    <tr  style=" border-bottom: 1px dashed #a7a7a7;">
+                        <td class="text-l"><{$vo.subject}></td>
+                        <td class="text-l"><{$vo.addtime|date='Y-m-d H:i:s',###}> </td>
+                        <td class="text-c"><a href="javascript:void(0);" onclick="showPage('600','600','查看留言','<{:U('Message/messageshow',array('id'=>$vo['id']))}>')" >查看 </a></td>
+                    </tr>
+                    </a>
+                </volist>
+                </tbody>
+            </table>  
+            <div id="pageNav" class="pageNav"><{$page}></div>
+        </div>
+    </div>
+<include file='Common:foot' />

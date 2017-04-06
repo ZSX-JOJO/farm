@@ -1,0 +1,332 @@
+* {
+    padding: 0px;
+    margin: 0px auto
+}
+
+img {
+    border: medium none;
+}
+
+button {
+    height: 20px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(0, 102, 0);
+    font-size: 12px;
+}
+
+.main {
+    width: 1000px
+}
+
+.bg {
+    width: 1000px;
+    height: 725px;
+    background: transparent url('../../images/home/bg.png') no-repeat scroll left top;
+    position: relative;
+}
+
+.didiv {
+    width: 830px;
+    height: 380px;
+    position: absolute;
+    top: 300px;
+    background: transparent url('../../images/home/dibg15.png') no-repeat scroll right top;
+
+}
+
+.diul {
+    position: relative;
+}
+
+.di {
+    width: 188px;
+    height: 82px;
+    float: left;
+    display: block;
+    background: transparent url('../../images/home/kong0.png') no-repeat scroll left top;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.userinfo {
+    position: absolute;
+    width: 221px;
+    height: 100px;
+    left: 10px;
+    top: 0px;
+    text-align: left;
+    padding: 5px;
+    background: url(../../images/home/userinfo.png);
+    font-size: 12px;
+    z-index: 2;
+    color: white;
+}
+
+#userinfo {
+    height: 36px;
+    margin-top: 13px;
+    color: black;
+    font-weight: bolder;
+    font-style: italic;
+    position: relative;
+}
+
+.money01 {
+    position: absolute;
+    left: 65px;
+    bottom: 37px;
+}
+
+.yuanbao01 {
+    position: absolute;
+    left: 65px;
+    bottom: 22px;
+}
+
+.streng01 {
+    position: absolute;
+    left: 67px;
+    bottom: 6px;
+}
+
+#righttop {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    right: 10px;
+    top: 1px;
+    text-align: right;
+    padding: 5px;
+    z-index: 2;
+}
+
+#leftcenter {
+    position: absolute;
+    width: 30px;
+    height: 250px;
+    left: 10px;
+    top: 250px;
+    padding: 5px;
+    z-index: 1;
+}
+
+#leftcenter span {
+    display: inline-block;
+    width: 53px;
+    height: 60px;
+}
+
+#bottomleft {
+    position: absolute;
+    width: 150px;
+    height: 20px;
+    left: 10px;
+    bottom: 20px;
+    padding: 5px;
+    z-index: 1;
+}
+
+.di img {
+    position: absolute;
+    left: 45px;
+    top: -40px;
+    width: 100px;
+    z-index: 100;
+}
+
+.diinfo {
+    position: absolute;
+    width: 90px;
+    height: 60px;
+    overflow: hidden;
+    z-index: 110;
+    left: 40px;
+    text-align: center;
+    top: -25px;
+    font-size: 12px;
+    /*  background: transparent url('../../images/home/diinfobg.png') no-repeat scroll center top;*/
+    background: rgba(255, 255, 255, 0.71);
+    border-radius: 5px;
+    line-height:20px;
+}
+
+.plate {
+    position: absolute;
+    top: 221px;
+    left: 155px;
+}
+
+.zeng {
+    font-size: 12px;
+    text-align: center;
+    background: transparent url('../../images/home/zengbg.png') no-repeat scroll center top;
+    width: 60px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    z-index: 120;
+    left: 60px;
+    top: 30px;
+}
+
+.msg {
+    height: 25px;
+    width: 100px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    font-size: 12px;
+    background: #fff;
+    z-index: 125;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 25px;
+}
+/*.tooldiv { width: 510px; height: 60px; background: transparent url('../../images/home/bottommenu.png') no-repeat scroll left top; position: absolute; top: 640px; left: 220px; }
+.tooldiv img { cursor: pointer; height: 40px; }*/
+#bottomcenter {
+    position: absolute;
+    width: 498px;
+    height: 50px;
+    left: 205px;
+    bottom: 0px;
+    padding: 5px;
+    z-index: 2;
+    background: url(../../images/home/bottommenu.png);
+    text-align: center;
+}
+
+#bottomcenter span {
+    display: inline-block;
+    width: 95px;
+    margin-top: -20px;
+    position: relative;
+    cursor: pointer;
+}
+
+#bottomcenter span font {
+    position: absolute;
+    left: 30px;
+    bottom: -10px;
+    color: white;
+    font-size: 20px;
+}
+
+#refresh {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: url(../../images/home/refresh.png) no-repeat;
+    right: 218px;
+    bottom: 0px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+#ydico, #kaiico, #hfico, #hfico2, #caiico, #jiaico, #jsico, #sxico {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 10px 18px;
+    overflow: hidden;
+}
+
+#aform, #shuidiv {
+    width: 300px;
+    height: 220px;
+    background: transparent url('../../images/home/formbg.png') no-repeat scroll left top;
+    position: absolute;
+    z-index: 300;
+    top: 360px;
+    left: 550px;
+    text-align: center;
+    padding-top: 50px;
+    line-height: 30px;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    cursor: default;
+}
+
+#closes {
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 260px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.gaidiv {
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+    width: 72%;
+    height: 620px;
+    position: absolute;
+    top: 150px;
+    left: 220px;
+    z-index: 200;
+}
+
+.red {
+    color: rgb(255, 0, 0);
+}
+
+#shifei {
+    width: 80px;
+    height: 30px;
+    /* position: absolute; */
+    z-index: 150;
+    /* top: 180px; */
+    /* left: 200px; */
+    text-align: right;
+    overflow: inherit;
+}
+
+#adbtn {
+    line-height: 20px;
+    height: 24px;
+}
+
+#shuom {
+    display: block;
+    float: right;
+    width: 100px;
+    height: 60px;
+    position: absolute;
+    top: 545px;
+    left: 5px;
+}
+.land1{background: transparent url('../../images/home/dibg00.png') no-repeat scroll left top;}
+.land2{background: transparent url('../../images/home/dibg01.png') no-repeat scroll left top;}
+.d1{top: 15px; left: 295px;}
+.d2{top: 49px; left: 380px;}
+.d3{top: 83px; left: 465px;}
+.d4{top: 117px; left: 550px;}
+.d5{top: 151px; left: 635px;}
+.d6{top: 59px; left: 195px;}
+.d7{top: 93px; left: 280px;}
+.d8{top: 127px; left: 365px;}
+.d9{top: 161px; left: 450px;}
+.d10{top: 195px; left: 535px;}
+.d11{top: 103px; left: 95px;}
+.d12{top: 137px; left: 180px;}
+.d13{top: 171px; left: 265px;}
+.d14{top: 205px; left: 350px;}
+.d15{top: 239px; left: 435px;}
+
+.ico {
+    font-size: 12px;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    position: absolute;
+    z-index: 120;
+    left: 75px;
+    top: 0px;
+}

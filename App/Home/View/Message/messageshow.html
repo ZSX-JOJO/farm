@@ -1,0 +1,38 @@
+<include file='Common:head' />
+<title></title>
+</head>
+<body style='background:0;'>
+<div class="" style='margin-left:8px;background: #fff;height:725px;'>
+<div class="page-container">
+	<form action="" method="post" class="form form-horizontal SubmiForm" id="form-article-add">
+            <div class="row cl">
+			<label class="form-label col-xs-3 col-sm-2"  style='text-align:right;'>主题：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+              <{$row.subject}>
+			</div>
+		</div>
+			<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-2" style='text-align:right;'>内容：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+                <{$row.content}>
+			</div>
+		</div>
+            <if condition="$row.picture neq '' " >
+            	<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-2" style='text-align:right;'>图片：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+                            <img src="/<{$row.picture}>"  width="100%">
+               
+			</div>
+		</div>
+            </if>
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-2" style='text-align:right;'>回复：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+                <if condition='$row.reply eq "" ' > 暂未回复 <else/><{$row.reply}></if>
+			</div>
+		</div>
+	</form>
+</div>
+      <div id="pageNav" class="pageNav"><button onClick="close_ifrme();" class="btn btn-default radius" type="button">&nbsp;&nbsp;关闭&nbsp;&nbsp;</button></div>
+<include file='Common:foot' />

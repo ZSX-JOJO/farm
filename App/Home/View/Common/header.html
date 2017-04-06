@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="__STYLE__/home/base.css">
+            <link rel="stylesheet" type="text/css" href="__STYLE__/home/main.css">
+                <script type="text/javascript" src="__JS__/home/jquery.js"></script>
+
+                <link href="__STYLE__/home/font-awesome/4.4.0/css/font-awesome.min.css"  rel="stylesheet" type="text/css">
+
+
+                    <title></title>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('.main_left h3').click(function () {
+                                $(this).siblings('div').toggle('fast', 'linear').parent('li').siblings('li').children('div').hide('fast', 'linear');
+                            });
+                            $('.header_nav a').click(function () {
+                                $(this).addClass('hot').siblings('a').removeClass('hot');
+                            });
+                        });
+                    </script>
+                    <style type="text/css">
+                        .userInfo {    width: 897px;;position:absolute;bottom:0;right:0;overflow:hidden;color:#fff;font-size: 16px;margin-bottom: 30px;}
+                        .userInfo span {display:inline-block;padding:10px 20px;color:#fff;font-size:16px; }
+                    </style>
+                    </head>
+                    <body style="background-color: #607391;">
+
+                        <!--   <img src="__IMG__/home/index_bg.jpg"  style="width:100%;position: fixed;min-height:800px;z-index:-1;"/>-->
+
+                        <!--头部-->
+                        <div class="main_top">
+                            <div class="header">
+                                <div class="viewport admin_bg">
+                                    <!--            <div style="float:right;padding-top:10px;"> <p><a href="?l=zh-cn">中文</a> | <a href="?l=ru-ru"> Russian</a></p></div>-->
+
+                                    <img src="__IMG__/home/header_logo.png" alt="logo" />
+
+                                    <div class="userInfo">
+                                        <marquee style="cursor: pointer;" onClick="HotNewsHistory();" onMouseOut="this.start();" onMouseOver="this.stop();" direction="left" scrolldelay="30" scrollamount="5" id="msgNews" ><{$msgdata['topmsg']}></marquee>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--头部End-->

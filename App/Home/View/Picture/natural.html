@@ -1,0 +1,23 @@
+﻿<include file='Common:head' />
+<title>图片展示</title>
+</head>
+<body style='background-color: #DCE0EB;'>
+<div class="" style='margin-left:15px;background: #fff;'>
+  <nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>自然风光</nav>
+	<div class="portfolio-content"  style='padding-bottom:60px;'>
+		<ul class="cl portfolio-area" style='margin-right: 0px;'>
+			<volist name='list' id='vo'>
+			<li class="item">
+				<div class="portfoliobox">
+					
+                                    <div class="picbox"><img src="/<{$vo.image_path_thumb}>" width='194' height='194' onclick="showPage(800,500,'查看','<{:U('Picture/page',array('id'=>$vo['id']))}>')" style="cursor: pointer"></div>
+					<div class="textbox">客厅 </div>
+				</div>
+			</li>
+			</volist>
+		</ul>
+		<div id="pageNav" class="pageNav"><{$page}></div>
+		
+	</div>
+</div>
+<include file='Common:foot' />

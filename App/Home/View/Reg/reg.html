@@ -1,0 +1,150 @@
+<include file='Common:head' />
+<title>注册会员</title>
+<style type="text/css">
+.msgs{display:inline-block;width:104px;color:#fff;font-size:12px;border:1px solid #0697DA;text-align:center;height:30px;line-height:30px;background:#0697DA;cursor:pointer;}
+.msgs1{background:#E6E6E6;color:#818080;border:1px solid #CCCCCC;}
+</style>
+</head>
+<body style="background: #DCE0EB;">
+<div class="" style='background: #fff;width:900px;margin:0 auto'>
+ <nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>注册会员</nav>
+    <article class="page-container">
+        <form action="__SELF__" method="" class="form form-horizontal registerform" id="form-member-add">
+            {__TOKEN__} 
+            <div class="row cl">
+                    <label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>推荐人：</label>
+                    <div class="formControls col-xs-7 col-sm-5">
+                        <input type="text" class="input-text recommend" value="<{$reInfo.username}>"   readonly="readonly" >
+                    </div><div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>会员账号：</label>
+                    <div class="formControls col-xs-7 col-sm-5">
+                        <input type="text" class="input-text username" value="" ajaxurl="<{:U('/Home/Login/check_username_unique')}>"  placeholder="" errormsg="会员账号长度为6-16" nullmsg="请输入会员账号！"  id="username" name="username"  datatype="u6-16" >
+                    </div><div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-3 col-sm-3" style='text-align:right;' ><span class="c-red">*</span>会员昵称：</label>
+                    <div class="formControls col-xs-7 col-sm-5">
+                        <input type="text" class="input-text name" value="" placeholder="" id="name" name="name"  nullmsg="请输入昵称！" datatype="*">
+                    </div>
+
+                    <div class="Validform_checktip"></div>
+                </div>
+             
+                <div class="row cl">
+                    <label class="form-label col-xs-3 col-sm-3" style='text-align:right;' ><span class="c-red">*</span>密码：</label>
+                    <div class="formControls col-xs-7 col-sm-5">
+                        <input type="password" class="input-text password" value="" placeholder="" id="password" name="password" errormsg="密码范围在6~16位之间！" nullmsg="请设置密码！" datatype="*6-16">
+                    </div>
+                    <div class="Validform_checktip"></div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>确认密码：</label>
+                    <div class="formControls col-xs-7 col-sm-5">
+                        <input type="password" value="" class="input-text affirm_password" placeholder="" name="affirm_password" id="affirm_password" errormsg="您两次输入的密码不一致！" nullmsg="请再输入密码！" recheck="password" datatype="*" tip="test">
+                    </div>
+                    <div class="Validform_checktip"></div>
+                </div>
+                   <div class="row cl">
+                    <label class="form-label col-xs-3 col-sm-3" style='text-align:right;' ><span class="c-red">*</span>手机号码：</label>
+                    <div class="formControls col-xs-7 col-sm-5">
+                       <input type="text" class="input-text mobile" value="" ajaxurl="<{:U('/Home/Login/check_mobile_unique')}>"  placeholder="" id="mobile" name="mobile" errormsg="手机号码格式不正确！" nullmsg="请输入数据号码！" datatype="mobile">  
+                    </div>
+
+                    <div class="Validform_checktip mobile_msg"></div>
+                </div>
+            <div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style="text-align:right;"><span class="c-red">*</span>短信验证码：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+					<input type="text" class="input-text code" placeholder="" name="code" value="" style="width:120px;">&nbsp;&nbsp;<span class="msgs">获取短信验证码</span>
+			</div>
+		</div>
+                
+                <div class="row cl" style="padding:16px;">
+                    <div class="col-xs-8 col-sm-4 col-xs-offset-4 col-sm-offset-5">
+                        <!--<input type="hidden" value="<{$rid}>"  class="m" name="m">-->
+                        <button class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont"></i>  注 册 </button>
+                    </div>
+                </div>
+        </form>
+    </article>
+
+
+<include file='Common:foot' />
+<script type="text/javascript">
+    
+
+
+    $(function () {
+        
+      
+    	//获取短信验证码
+		var validCode=true;
+		$(".msgs").click (function  () {
+			  var mobile=$('.mobile').val();
+                         if(mobile!==""){
+			var time=60*3;
+			var code=$(this);
+			var flag=false;
+			if (validCode) {
+				validCode=false;
+				code.addClass("msgs1");
+				flag=true;
+			var t=setInterval(function  () {
+				time--;
+				code.html(time+"秒");
+				if (time==0) {
+					clearInterval(t);
+				code.html("重新获取");
+					validCode=true;
+				code.removeClass("msgs1");
+
+				}
+			},1000)
+			}
+			if(flag)
+			{  
+				flag=false;
+				codes();
+			}
+                          }else{
+                            $('.mobile_msg').html(' <span class="Validform_checktip Validform_wrong">请输入手机号码！</span>');
+
+                       }
+		})
+	/****************************************/
+       
+
+        $(".registerform").Validform({
+         
+            callback: function (form) {
+              
+            
+                var check = confirm("您确定要提交表单吗？");
+                if (check) {
+                 reg();
+                }
+           
+
+                return false;
+            },
+            tiptype: 2,
+            datatype: {//传入自定义datatype类型【方式二】;
+                "z2-4": /^[\u4e00-\u9fa5]{2,4}$|^[a-zA-Z]{2,30}$/gi,
+                "yb-6": /[1-9]\d{5}(?!\d)/,
+                "u6-16": /^[A-Za-z0-9]{6,12}$/,
+                "yhno-16-19": /^(\d{16}|\d{19})$/,
+                "xxdz": /^(?=.*?[\u4E00-\u9FA5])[\d\u4E00-\u9FA5]+/,
+                'mobile':/^1[34578]\d{9}$/,
+            }
+        });
+
+
+    })
+
+
+</script> 

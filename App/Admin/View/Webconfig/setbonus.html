@@ -1,0 +1,77 @@
+﻿<include file='Common:head' />
+<title></title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 系统设置 <span class="c-gray en">&gt;</span> 参数设置 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+<form method="post" action="__SELF__">
+<table class="table table-border table-bordered table-hover table-bg">
+  <tbody>
+   
+	<tr>
+      <th class="text-r" width="200">提现开关：</th>
+	  <td>
+		  <label><input name="tixian_status" value="1" type="radio" <if condition="$setparameter.tixian_status eq 1">checked='checked'</if>>启用</label>&nbsp;
+		  <label><input name="tixian_status" value="0" type="radio" <if condition="$setparameter.tixian_status eq 0">checked='checked'</if>>关闭</label>&nbsp
+	  </td>
+    </tr>
+    <tr>
+      <th class="text-r" width="200">充值开关：</th>
+	  <td>
+		  <label><input name="chongzhi_status" value="1" type="radio" <if condition="$setparameter.chongzhi_status eq 1">checked='checked'</if>>启用</label>&nbsp;
+		  <label><input name="chongzhi_status" value="0" type="radio" <if condition="$setparameter.chongzhi_status eq 0">checked='checked'</if>>关闭</label>&nbsp
+	  </td>
+    </tr>
+     <tr>
+      <th class="text-r" width="200">网站关闭提示信息：</th><td><input type="text" name='webmsg' placeholder="" value="<{$setparameter.webmsg}>" style="width:400px" class="input-text webmsg"></td>
+    </tr>
+    
+   
+         <tr>
+      <th class="text-r" width="200">本金每日提现的次数：</th><td><input type="text" name='benjincishu' placeholder="" value="<{$setparameter.benjincishu}>" style="width:200px" class="input-text benjincishu">次</td>
+    </tr>
+         <tr>
+      <th class="text-r" width="200">本金最低提现金额：</th><td><input type="text" name='benjinzuidi' placeholder="" value="<{$setparameter.benjinzuidi}>" style="width:200px" class="input-text benjinzuidi">元</td>
+    </tr>
+    <tr>
+      <th class="text-r" width="200">本金提现收取费用百分比：</th><td><input type="text" name='benjinshuxufei' placeholder="" value="<{$setparameter.benjinshuxufei}>" style="width:200px" class="input-text benjinshuxufei">%</td>
+    </tr>
+    <tr>
+      <th class="text-r" width="200">本金单次最高提现：</th><td><input type="text" name='benjinzuigaotixian' placeholder="" value="<{$setparameter.benjinzuigaotixian}>" style="width:200px" class="input-text benjinzuigaotixian">%</td>
+    </tr>
+      <tr>
+      <th class="text-r" width="200">最低充值金额：</th><td><input type="text" name='zuidicongzhimoney' placeholder="" value="<{$setparameter.zuidicongzhimoney}>" style="width:200px" class="input-text zuidicongzhimoney">元</td>
+    </tr>
+      <tr>
+      <th class="text-r" width="200">最高充值金额：</th><td><input type="text" name='zuigaocongzhimoney' placeholder="" value="<{$setparameter.zuigaocongzhimoney}>" style="width:200px" class="input-text zuidicongzhimoney">元</td>
+    </tr>
+        <tr>
+      <th class="text-r" width="200">充值金额倍数：</th><td><input type="text" name='chongzhimoneybeishu' placeholder="" value="<{$setparameter.chongzhimoneybeishu}>" style="width:200px" class="input-text chongzhimoneybeishu">倍</td>
+    </tr>
+    </tr>
+        <tr>
+      <th class="text-r" width="200">开垦土地：</th><td><input type="text" name='kaikenmoney' placeholder="" value="<{$setparameter.kaikenmoney}>" style="width:200px" class="input-text kaikenmoney">元</td>
+    </tr>
+<!--     <tr>
+      <th class="text-r" width="200">邀请激励奖比例：</th><td><input type="text" name='ztjlj' placeholder="" value="<{$setparameter.ztjlj}>" style="width:200px" class="input-text lxsxf">%</td>
+    </tr>
+     <tr>
+      <th class="text-r" width="200">团队激励奖比例：</th><td><input type="text" name='tdjlj' placeholder="" value="<{$setparameter.tdjlj}>" style="width:200px" class="input-text lxsxf">%</td>
+    </tr>
+      <tr>
+
+      <th class="text-r" width="200">获得团队奖需5层内团队投资达到：</th><td><input type="text" name='tdtzje' placeholder="" value="<{$setparameter.tdtzje}>" style="width:200px" class="input-text lxsxf">元</td>
+    </tr>-->
+    
+
+ 
+    <tr>
+      <th class="text-r"></th><td><button  class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i>  确定</button></td>
+    </tr> 
+ 
+  </tbody>
+</table>
+</div>
+	
+</form>
+<include file='Common:foot' />

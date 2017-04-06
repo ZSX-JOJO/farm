@@ -1,0 +1,63 @@
+<include file='Common:head' />
+<title></title>
+<body style='background: 0;'>
+<div class="" style='margin-left:8px;background: #fff;height:725px;'>
+<nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>修改密码</nav>
+<div class="page-container">
+	<form action=""  class="form form-horizontal SubmiForm" id="form-article-add"  >
+		{__TOKEN__}
+                <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4 " style="text-align: right;"><span class="c-red">*</span>密码类型：</label>
+			<div class="formControls col-xs-5 col-sm-4">
+				<select name="type" class="select type select-box"  nullmsg='请选择密码类型' datatype='*' >
+                                <option value="" >请选择</option>
+                                     <option value="1">一级密码</option>
+                                     <option value="2">二级密码</option>
+				</select>
+                        </div>  <div class="Validform_checktip"></div>    
+		</div>
+		            <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4 " style="text-align: right;"><span class="c-red">*</span>旧密码：</label>
+			<div class="formControls col-xs-5 col-sm-4">
+                            <input type="password" class="input-text oldpassword"  value="" placeholder="" id="" name="oldpassword"  errormsg="密码范围在6~16位之间！" nullmsg="请输入旧密码！" datatype="*6-16" >
+			</div>
+                           <div class="Validform_checktip"></div>
+		</div>
+                            <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4 " style="text-align: right;"><span class="c-red">*</span>新密码：</label>
+			<div class="formControls col-xs-5 col-sm-4">
+                            <input type="password" class="input-text newpassword"  value="" placeholder="" id="" name="newpassword"  errormsg="密码范围在6~16位之间！" nullmsg="请设置新密码！" datatype="*6-16" >
+			</div>
+                           <div class="Validform_checktip"></div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-4 " style="text-align: right;"><span class="c-red text-r">*</span>确认新密码：</label>
+			<div class="formControls col-xs-5 col-sm-4">
+				<input type="password" name="repassword" id="" placeholder="" value="" class="input-text repassword"  errormsg="您两次输入的密码不一致！" nullmsg="请再输入确认密码！" recheck="newpassword" datatype="*" tip="test" >
+			</div>
+                           <div class="Validform_checktip"></div>
+		</div>
+
+
+		<div class="row cl text-c">
+                    <button  class="btn btn-secondary radius"   type="submit"><i class="Hui-iconfont">&#xe632;</i> 确认修改</button>
+		</div>
+	</form>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<include file='Common:foot' />
+<!--/_footer /作为公共模版分离出去-->
+<script type="text/javascript">
+$(function(){
+
+$(".SubmiForm").Validform({
+                callback:function(form){
+                  passwordedit_save();
+                    return false;
+		},
+		tiptype:2,
+         
+	});	
+});
+</script> 

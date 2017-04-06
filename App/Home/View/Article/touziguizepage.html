@@ -1,0 +1,17 @@
+<include file='Common:head' />
+<title>查看</title>
+</head>
+<body style='background: 0;'>
+<div class="" style='margin-left:8px;background: #fff;height:725px'>
+<nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>规则详情</nav>
+
+<div class="pd-20">
+  <div class="Huiform">
+	<center><h4><{$relust.art_title}></h4></center>
+	<!--<center><h5>作者：&nbsp;<{$relust.art_author}>&nbsp;&nbsp来源：&nbsp;<{$relust.art_source}></h5></center>-->
+	<br/>
+	<{$relust.art_content|htmlspecialchars_decode=###}>
+	
+  </div>
+</div>
+<include file='common:foot' />

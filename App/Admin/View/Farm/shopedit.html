@@ -1,0 +1,59 @@
+<include file='common:head' />
+<title>节点信息编辑</title>
+</head>
+<body>
+<div class="pd-20">
+  <div class="Huiform">
+    <form action="__SELF__" method="post">
+      <table class="table table-bg">
+        <tbody>
+          <tr>
+            <th width="200" class="text-r">名称：</th>
+			
+            <td><input type="text" style="width:200px" class="input-text title" value="<{$shopinfo.title}>" placeholder=""  name="title"></td>
+          </tr>
+          
+		  <tr>
+            <th class="text-r"> 购买价格（种子/道具）：</th>
+            <td><input type="text" style="width:200px" class="input-text money" value="<{$shopinfo.money}>" placeholder=""  name="money"></td>
+          </tr>
+        <if condition="$shopinfo.type eq 1 ">
+		  <tr>
+            <th class="text-r">收购价格（果实）：</th>
+            <td><input type="text" style="width:200px" class="input-text sellmoney" value="<{$shopinfo.sellmoney}>" placeholder=""  name="sellmoney"></td>
+          </tr>
+        </if>
+        <if condition="$shopinfo.type eq 1 ">
+          <tr>
+            <th class="text-r">生长周期（小时）：</th>
+            <td><input type="text" style="width:200px" class="input-text hour" value="<{$shopinfo.hour}>" placeholder=""  name="hour"></td>
+          </tr>
+           <tr>
+            <th class="text-r">产出个数（个）：</th>
+            <td><input type="text" style="width:200px" class="input-text number" value="<{$shopinfo.number}>" placeholder=""  name="number"></td>
+          </tr>
+          <elseif condition="$shopinfo.type eq 2" />
+               <tr>
+            <th class="text-r">缩短时间（小时）：</th>
+            <td><input type="text" style="width:200px" class="input-text hour" value="<{$shopinfo.hour}>" placeholder=""  name="hour"></td>
+          </tr>
+        </if>
+        
+          <tr>
+            <th class="text-r">产生积分：</th>
+            <td><input type="text" style="width:200px" class="input-text integral" value="<{$shopinfo.integral}>" placeholder="" id="user-address" name="integral"></td>
+          </tr>
+		  <tr>
+            <th class="text-r">产生经验：</th>
+            <td><input type="text" style="width:200px" class="input-text experience" value="<{$shopinfo.experience}>" placeholder="" id="user-address" name="experience"></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><button class="btn btn-success radius" type="button" onclick='shop_edit_save(<{$shopinfo.id}>)'><i class="icon-ok"></i> 确定</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+<include file='common:foot' />

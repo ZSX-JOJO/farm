@@ -1,0 +1,15 @@
+.scroll{  position: absolute;top: 585px;left: 300px; display:none}
+.box {height:60px; float:left; width:300px; overflow: hidden; position:relative; border:1px solid #fff;     background: #a46126;  } 
+.box li {  background: #fff;   border: 1px solid #e3dfdf; display:block; float:left; margin-left:5px; margin-right:3px; width:50px; height:50px;color:#000;text-decoration:none;text-align:center; cursor:pointer;} 
+.box li:hover { color:red; } 
+.box li div{    float: right;
+    position: absolute;
+    /* top: 40px; */
+    /* left: 39px; */
+    width: 20px;
+    height: 20px;
+    /* font-size: 12px; */}
+.box li.active { background-position:-174px 0; color:#555;cursor:default;} 
+a.prev, a.next {background:url(../../images/home/left_02.png) no-repeat 0 0; display:block;width:23px;height:50px; float:left; margin:8px 0 0 0; cursor:pointer;} 
+a.next { background-image:url(../../images/home/right_02.png)} 
+.scroll_list{ width:10000em; position:absolute;padding-top:5px;  } 

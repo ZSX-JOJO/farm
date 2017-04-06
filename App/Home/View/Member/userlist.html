@@ -1,0 +1,36 @@
+<include file='Common:head' />
+<title>会员列表</title>
+</head>
+<body style='background:0;'>
+<div class="" style='margin-left:8px;background: #fff;height:725px;'>
+<nav class="breadcrumb" style='height: 45px;line-height: 45px;font-size: 16px;'>我的会员</nav>
+<div class="page-container">
+        <div class="cl pd-5 bg-1 bk-gray mt-20">
+            <span class="l" >
+            </span>  <span class="r">共有数据：<strong><{$count}></strong> 条</span> </div>
+        <div class="mt-0">
+            <table class="table table-border table-bordered table-hover table-bg ">
+                <thead>
+                    <tr class="text-c">
+                        <th width="">No</th>
+                        <th width="">账号</th>
+                        <th width="">昵称</th>
+                        <th width="">注册时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <volist name='list' id='vo'>
+                    <tr class="text-c"> 
+                        <td class="text-c"><{$i}></td>
+                        <td class="text-c"><{$vo.username}></td>
+                        <td class="text-c"><{$vo.name}></td>
+                        <td class="text-c" style="width:180px;"><{$vo.regtime|date="Y-m-d H:i:s",###}></td>
+                    </tr>
+                </volist>
+
+                </tbody>
+            </table>  
+            <div id="pageNav" class="pageNav"><{$page}></div>
+        </div>
+    </div>
+<include file='Common:foot' />

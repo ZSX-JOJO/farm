@@ -1,0 +1,89 @@
+﻿<include file='Common:header' />
+<link rel="stylesheet" href="__PUBLIC__/H-ui/lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+
+                <div class="myteamdiv">
+                    <div class="myteamdivs">
+					<form method="get" action=""  name=''>
+                        <span class="myteamspan">我的家谱：</span>
+                        <input type="text" class="myteamtext mobile"  name='mobile' <if condition="$Think.get.mobile neq ''">value='<{$Think.get.mobile}>'</if> />
+                        <a class="myteama" onclick='search_group()'>搜索</a>&nbsp;&nbsp;&nbsp;<span class='mobile_tip' style='height:30px;line-height:30px;'></span>
+						</form>
+                    </div>
+                    <p class="tdrsp">您的团队成员数量为：<{$selfinfo.group}></p>
+					 <ul id="treeDemo" class="ztree">
+					</ul>
+                </div>
+
+                <div style="height: 10px; width: 100%;"></div>
+
+                <div class="registerdivs">
+                    <span class="registerspans">我的团队</span>
+                    <table class="registertables" cellspacing="0" cellpadding="0">
+                        <tr><th style="width: 100px;">账号</th>
+                            <th style="width: 100px;">姓名</th>
+                            <th style="width: 100px;">会员级别</th>
+                            <th style="width: 150px;">手机号</th>
+                            <th style="width: 150px;">邀请人数</th>
+                            <th style="width: 250px;">状态</th>
+                            <th style="width: 250px;">注册时间</th>
+							<th style="width: 150px;">操作</th>
+                        </tr>
+						<volist name='list' id='vo' >
+
+                        <tr> <td><{$vo.username}></td>
+                            <td><{$vo.name}></td>
+                            <td><{$star[$vo['star']]}></td>
+                            <td><{$vo.mobile}></td>
+                            <td><{$vo.directnum}></td>
+                            <td><if condition='$vo.estate eq "0"'>未激活<else/><{$status[$vo['status']]}></if></td>
+                            <td><{$vo.regtime|date='Y-m-d H:i:s',###}></td>
+							<td><a href='javascript:;' onclick='estate("<{$vo["id"]}>")' >激活</a>&nbsp;
+							<a href='javascript:;' onclick='del_user("<{$vo["id"]}>")'>删除</a></td>
+                        </tr>
+                      </volist>
+                    </table>
+                  	<div class='page'><{$page}></div>
+                    <div style="margin-bottom: 30px;"></div>
+                </div>
+
+
+
+            </div>
+
+
+            <div style="height: 50px; width: 100%; clear: both;"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script> 
+	<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			async: {
+				enable: true,
+				url:"/Home/Member/ztree",
+				autoParam:["id", "name=n", "level=lv"],
+				otherParam:{"otherParam":"zTreeAsyncTest"},
+				dataFilter: filter
+			}
+		};
+
+		function filter(treeId, parentNode, childNodes) {
+			if (!childNodes) return null;
+			
+			for (var i=0, l=childNodes.length; i<l; i++) {
+				childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+				
+			}
+			return childNodes;
+		}
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting);
+		});
+		//-->
+	</SCRIPT>
+<include file='Common:footer' />

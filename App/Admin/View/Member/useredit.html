@@ -1,0 +1,72 @@
+<include file='Common:head' />
+<title>修改会员信息</title>
+</head>
+<body>
+<article class="page-container">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+          
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>账号：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+				<input type="text" class="input-text username" value="<{$member_row.username}>" placeholder="" id="username" name="username">
+			</div>
+		</div>
+                 <div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>昵称：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+				<input type="text" class="input-text name" value="<{$member_row.name}>" placeholder="" id="name" name="name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>手机：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+				<input type="text" class="input-text mobile" value="<{$member_row.mobile}>" placeholder="" id="mobile" name="mobile">
+			</div>
+		</div>
+            <div class="row cl">
+			<label class="form-label col-xs-3 col-sm-3" style='text-align:right;'><span class="c-red">*</span>可添加银行数：</label>
+			<div class="formControls col-xs-7 col-sm-9">
+				<input type="text" class="input-text banknum" value="<{$member_row.banknum}>" placeholder="" id="banknum" name="banknum">
+			</div>
+		</div>
+	
+
+
+
+		
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
+<include file='Common:foot' />
+<script type="text/javascript">
+$(function(){
+
+	
+	$("#form-member-add").validate({
+		rules:{
+			 username:{
+                            required:true,
+                            minlength:6,
+                        },
+                        name:{
+                             required:true,
+                        },
+			mobile:{
+				required:true,
+				isMobile:true,
+			},
+			
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+		user_edit_save(<{$id}>);
+		}
+	});
+});
+</script> 
